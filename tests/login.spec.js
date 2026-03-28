@@ -13,5 +13,5 @@ await expect(page).toHaveTitle('Swag Labs');
 test('should show locked out error message with invalid credentials', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.login(process.env.LOCKED_USERNAME, process.env.PASSWORD);
-  await expect(loginPage.getErrorMessage()).toBe('Epic sadface: Sorry, this user has been locked out.');
+ expect(await loginPage.getErrorMessage()).toBe('Epic sadface: Sorry, this user has been locked out.');
 });
