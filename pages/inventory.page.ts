@@ -18,6 +18,7 @@ export class InventoryPage {
         this.inventoryItems = page.locator('.inventory_item');
         this.inventoryImages = page.locator('.inventory_item_img');
         this.addToCartButtons = page.locator('.btn_inventory');
+        this.shoppingCartLink = page.locator('.shopping_cart_link').locator('.shopping_cart_badge');
 
     }
 
@@ -59,5 +60,10 @@ export class InventoryPage {
         await addToCartButton.click();
     }
 
-    
+    async getCartItemCount(): Promise<number> {
+        const cartCount = await this.shoppingCartLink.textContent();
+        return cartCount ? parseInt(cartCount) : 0; // Return 0 if cart is empty
+    }
+
+
 }

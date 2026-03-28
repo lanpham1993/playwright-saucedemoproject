@@ -1,6 +1,6 @@
 import { test } from '../fixtures/saucedemoPage.fixture';
 import { expect } from '@playwright/test';
-import { LoginPage } from '../pages/Login.page';
+import { LoginPage } from '../pages/login.page';
 
 test('should login successfully', async ({ page }) => {
   const loginPage = new LoginPage(page);

@@ -21,4 +21,6 @@ test('check unique inventory item images', async ({ page }) => {
 
 test('add item to cart', async ({ page }) => {  
     const inventoryPage = new InventoryPage(page);
+    await inventoryPage.addItemToCart('Test.allTheThings() T-Shirt (Red)');
+    expect(await inventoryPage.getCartItemCount()).toBe(1);
 });
